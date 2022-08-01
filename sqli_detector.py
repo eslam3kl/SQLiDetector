@@ -63,7 +63,7 @@ def split_file(wayback_array, payload):
 
 
 # calling splitting functions
-payloads = ["'123", "''123", "\")123", "\"123", "[]123", "\"\"123", "'\"123", "\"'123", "\\123"]
+payloads = ["'123", "''123", "\")123", "')123" "\"123", "[]123", "\"\"123", "'\"123", "\"'123", "\\123"]
 for line in payloads:
     line = line.strip()
     splitted_urls = split_file(waybackurls, line)
