@@ -46,7 +46,8 @@ https://example.com?file=aykalam&username=123'
 ## Upcoming updates
 - [ ] Adding threads to increase the speed.
 - [ ] Adding more payloads.
-- [ ] Enhance the output schema. 
+- [ ] Enhance the output schema.
+- [ ] Adding progress bar.
 
 If you want to contribute, feel free to do that. You're welcome :)
 
