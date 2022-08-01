@@ -27,6 +27,7 @@ It's very simple, just organize your steps as follows
 4. Grep to get all the links that contain parameters only. You can use Grep or GF tool.
 5. Pass the final URLs file to the tool, and it will test them. 
 ```
+pip3 install -r requirements.txt [Just for the first time only]
 python3 sqli_detector.py <waybackurls_file.txt>
 ```
 
