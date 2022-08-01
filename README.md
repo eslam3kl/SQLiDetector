@@ -38,5 +38,12 @@ https://example.com?file=aykalam&username=123'
 2. It will send a request for every link and check if one of the patterns is exist using regex. 
 3. For any vulnerable link, it will save it at seperate file for every process. 
 
+## Upcoming updates
+- [ ] Adding threads to increase the speed.
+- [ ] Adding more paylaods.
+- [ ] Enhace the output schema. 
+
+If you want to contribute, Feel free to do that. You're welcomed :)
+
 ## Stay in touch <3 
 [LinkedIn](https://www.linkedin.com/in/eslam3kl/) | [Blog](https://eslam3kl.medium.com/)  |  [Twitter](https://twitter.com/eslam3kll)
