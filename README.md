@@ -23,7 +23,9 @@ Source: https://github.com/sqlmapproject/sqlmap/blob/master/data/xml/errors.xml
 It's very simple, just organize your steps as following
 1. Use your subdomain grabber script or tools. 
 2. Use your links and URLs tools to greb all waybackurls. 
-3. Pass the waybackurls file to the tool and it will test them. 
+3. Use URO tool to filter tham and reduce the noise. 
+4. Grep to get all the links that contain paramters only. You can use Grep or GF tool.
+5. Pass the final URLs file to the tool and it will test them. 
 ```
 python3 sqli_detector.py <waybackurls_file.txt>
 ```
