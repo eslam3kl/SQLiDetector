@@ -29,7 +29,8 @@ python3 sqli_detector.py <waybackurls_file.txt>
 ```
 
 ## How it tests the parameter? 
-If we have a link like this one `https://example.com?file=aykalam&username=eslam3kl` so we have 2 parameters. 
+What's the difference between this tool and any other one? 
+If we have a link like this one `https://example.com?file=aykalam&username=eslam3kl` so we have 2 parameters. It create 2 possible vulnerable URLs. 
 1. It will work for every payload like the following 
 ```
 https://example.com?file=123'&username=eslam3kl
