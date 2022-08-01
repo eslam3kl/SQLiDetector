@@ -9,10 +9,11 @@ The main idea for the tool is scanning for Error Based SQL Injection by using di
 ' 
 "
 '' Double Singel quote
+"" Double Double quote
 '" Single quote + Double qoute
 "' Double quote + single quote
-:) 
-"" Double Double quote
+") 
+')
 \
 []
 ```
