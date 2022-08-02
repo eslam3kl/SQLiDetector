@@ -42,11 +42,10 @@ pip3 install -r requirements.txt
 ```
 To run the tool itself. 
 ```
-$ cat waybackurls_file.txt
-https://aykalam.com?x=test&y=fortest
-http://test.com?parameter=ayhaga
+$ cat urls.txt
+http://testphp.vulnweb.com/artists.php?artist=1
 
-$ python3 sqli_detector.py <waybackurls_file.txt>
+$ python3 sqli_detector.py urls.txt
 ```
 
 ## How does it test the parameter? 
