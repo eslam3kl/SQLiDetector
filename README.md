@@ -61,18 +61,21 @@ https://example.com?file=aykalam&username=123'
 3. For any vulnerable link, it will save it at a separate file for every process. 
 
 ## Upcoming updates
-- [ ] Adding threads to increase the speed.
+- [x] Output json option 
+- [x] Adding proxy option
+- [x] Adding threads to increase the speed.
+- [x] Adding progress bar.
 - [ ] Adding more payloads.
-- [ ] Enhance the output schema.
-- [ ] Adding progress bar.
 
 If you want to contribute, feel free to do that. You're welcome :)
 
+
 ## Contributors
-Thanks to Mohamed El-Khayat and Orwa for the amazing paylaods and ideas. Follow them and you will learn more
+Thanks to Mohamed El-Khayat, Khaled Nassar and Orwa for the amazing paylaods and ideas. Follow them and you will learn more
 ```
 https://twitter.com/Mohamed87Khayat
 https://twitter.com/GodfatherOrwa
+https://twitter.com/knassar702
 ```
 
 ## Stay in touch <3 
