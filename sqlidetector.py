@@ -1,4 +1,4 @@
-#!/usr/bin/pythno3
+#!/usr/bin/python3
 from core.cli import cli_opts, print_logo
 from core.app import Scanner
 
