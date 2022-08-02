@@ -80,6 +80,6 @@ class Scanner:
         except:
             pass  # IGNOERING THE ERRORS
 
-    def write_report(self,output: str):
+    def write_report(self, output: str):
         with open(output, "w") as f:
             f.write(json.dumps(self.found))
