@@ -6,16 +6,20 @@ Simple python script that helps you to detect SQL injection "Error based" by sen
 ## Description
 The main idea for the tool is scanning for Error Based SQL Injection by using different payloads like
 ```
-' 
-"
-'' Double Singel quote
-"" Double Double quote
-'" Single quote + Double qoute
-"' Double quote + single quote
-") 
-')
-\
-[]
+'123
+''123
+`123
+")123
+"))123
+`)123
+`))123
+'))123
+')123"123
+[]123
+""123
+'"123
+"'123
+\123
 ```
 And match for 152 error regex patterns for different databases. <br />
 Source: https://github.com/sqlmapproject/sqlmap/blob/master/data/xml/errors.xml
