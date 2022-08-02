@@ -64,7 +64,7 @@ https://example.com?file=aykalam&username=123'
 - [x] Adding proxy option
 - [x] Adding threads to increase the speed.
 - [x] Adding progress bar.
-- [ ] Adding more payloads.
+- [x] Adding more payloads.
 
 If you want to contribute, feel free to do that. You're welcome :)
 
