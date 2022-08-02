@@ -1,5 +1,5 @@
 # SQLiDetector
-Simple python script that helps you to detect SQL injection "Error based" by sending multiple requests with 9 payloads and checking for 152 regex patterns for different databases.
+Simple python script supported with BurpBouty profile that helps you to detect SQL injection "Error based" by sending multiple requests with 9 payloads and checking for 152 regex patterns for different databases.
 ```
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 | S|Q|L|i| |D|e|t|e|c|t|o|r|
@@ -9,7 +9,7 @@ Simple python script that helps you to detect SQL injection "Error based" by sen
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
 ```
 
-![Header](https://github.com/eslam3kl/SQLiDetector/blob/main/real-target.png)
+![Header](https://github.com/eslam3kl/SQLiDetector/blob/main/screenshots/real-target.png)
 
 ## Description
 The main idea for the tool is scanning for Error Based SQL Injection by using different payloads like
@@ -71,6 +71,18 @@ optional arguments:
 # python3 sqlidetector.py -f urls.txt -w 50 -o output.txt -t 10 
 ```
 
+## BurpBounty Module
+I've created a burpbounty profile that uses the same payloads add injecting them at multiple positions like 
++ Parameter name
++ Parameter value
++ Headers
++ Paths
+
+I think it's more effective and will helpful for POST request that you can't test them using the Python script. 
+![burpbounty1](https://github.com/eslam3kl/SQLiDetector/blob/main/screenshots/burp-bounty1.png)
+
+![burpbounty2](https://github.com/eslam3kl/SQLiDetector/blob/main/screenshots/burp-bounty2.png)
+
 ## How does it test the parameter? 
 What's the difference between this tool and any other one? 
 If we have a link like this one `https://example.com?file=aykalam&username=eslam3kl` so we have 2 parameters. It creates 2 possible vulnerable URLs. 
@@ -88,7 +100,8 @@ https://example.com?file=aykalam&username=123'
 - [x] Adding threads to increase the speed.
 - [x] Adding progress bar.
 - [x] Adding more payloads.
-- [ ] Inject the payloads in the parameter name itself.
+- [x] Adding BurpBounty Profile.
+- [x] Inject the payloads in the parameter name itself.
 
 If you want to contribute, feel free to do that. You're welcome :)
 
