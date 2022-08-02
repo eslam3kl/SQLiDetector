@@ -1,9 +1,10 @@
-#!/usr/bin/pythno3
-from core.cli import cli_opts
+#!/usr/bin/python3
+from core.cli import cli_opts, print_logo
 from core.app import Scanner
 
 
 def main():
+    print_logo()
     opts = cli_opts()
     targets = opts.file
     timeout = opts.timeout

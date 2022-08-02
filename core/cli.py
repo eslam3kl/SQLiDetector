@@ -57,7 +57,7 @@ def print_logo():
             console.print(char, style="bold", end="")
     console.print()
     console.print(
-        "[green bold]|[/green bold] Coded By: [yellow]Eslam Akl [blue]@eslam3kll[/blue][/yellow]"
+        "[green bold]|[/green bold] Coded By: [yellow]Eslam Akl [blue]@eslam3kll[/blue][/yellow] & [yellow]Khaled Nassar [blue]@knassar702[/blue][/yellow]"
     )
     console.print("[green bold]|[/green bold] Version: [yellow]1.0.0[/yellow]")
     console.print(
