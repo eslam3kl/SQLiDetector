@@ -45,7 +45,7 @@ To run the tool itself.
 $ cat urls.txt
 http://testphp.vulnweb.com/artists.php?artist=1
 
-$ python3 sqli_detector.py urls.txt
+$ python3 sqli_detector.py -f urls.txt
 ```
 
 ## How does it test the parameter? 
