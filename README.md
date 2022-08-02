@@ -42,14 +42,25 @@ http://test.com?parameter=ayhaga
 ## Installation and Usage
 Just run the following command to install the required libraries. 
 ```
-pip3 install -r requirements.txt 
+~/eslam3kl/SQLiDetector# pip3 install -r requirements.txt 
 ```
 To run the tool itself. 
 ```
-$ cat urls.txt
+~/eslam3kl/SQLiDetector# cat urls.txt
 http://testphp.vulnweb.com/artists.php?artist=1
 
-$ python3 sqli_detector.py -f urls.txt
+~/eslam3kl/SQLiDetector# python3 sqlidetector.py -h
+usage: sqlidetector.py [-h] -f FILE [-w WORKERS] [-p PROXY] [-t TIMEOUT] [-o OUTPUT]
+A simple tool to detect SQL errors
+optional arguments:
+  -h, --help            show this help message and exit]
+  -f FILE, --file FILE  [File of the urls]
+  -w WORKERS, --workers [WORKERS Number of threads]
+  -p PROXY, --proxy [PROXY Proxy host]
+  -t TIMEOUT, --timeout [TIMEOUT Connection timeout]
+  -o OUTPUT, --output [OUTPUT [Output file]
+
+~/eslam3kl/SQLiDetector# python3 sqlidetector.py -f urls.txt -w 50 -o output.txt -t 10 
 ```
 
 ## How does it test the parameter? 
