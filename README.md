@@ -1,7 +1,15 @@
 # SQLiDetector
 Simple python script that helps you to detect SQL injection "Error based" by sending multiple requests with 9 payloads and checking for 152 regex patterns for different databases.
+```
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+| S|Q|L|i| |D|e|t|e|c|t|o|r|
+| Coded By: Eslam Akl @eslam3kll & Khaled Nassar @knassar702
+| Version: 1.0.0
+| Blog: eslam3kl.medium.com
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
+```
 
-![Header](https://github.com/eslam3kl/SQLiDetector/blob/main/example.png)
+![Header](https://github.com/eslam3kl/SQLiDetector/blob/main/real-target.png)
 
 ## Description
 The main idea for the tool is scanning for Error Based SQL Injection by using different payloads like
@@ -75,11 +83,12 @@ https://example.com?file=aykalam&username=123'
 3. For any vulnerable link, it will save it at a separate file for every process. 
 
 ## Upcoming updates
-- [x] Output json option 
-- [x] Adding proxy option
+- [x] Output json option.
+- [x] Adding proxy option.
 - [x] Adding threads to increase the speed.
 - [x] Adding progress bar.
 - [x] Adding more payloads.
+- [ ] Inject the payloads in the parameter name itself.
 
 If you want to contribute, feel free to do that. You're welcome :)
 
