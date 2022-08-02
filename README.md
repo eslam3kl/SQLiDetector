@@ -1,7 +1,7 @@
 # SQLiDetector
 Simple python script that helps you to detect SQL injection "Error based" by sending multiple requests with 9 payloads and checking for 152 regex patterns for different databases.
 
-![Header](https://github.com/eslam3kl/SQLiDetector/blob/main/SCREENSHOT.png)
+![Header](https://github.com/eslam3kl/SQLiDetector/blob/main/example.png)
 
 ## Description
 The main idea for the tool is scanning for Error Based SQL Injection by using different payloads like
