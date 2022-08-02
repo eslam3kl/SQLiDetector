@@ -54,10 +54,10 @@ Just run the following command to install the required libraries.
 ```
 To run the tool itself. 
 ```
-~/eslam3kl/SQLiDetector# cat urls.txt
+# cat urls.txt
 http://testphp.vulnweb.com/artists.php?artist=1
 
-~/eslam3kl/SQLiDetector# python3 sqlidetector.py -h
+# python3 sqlidetector.py -h
 usage: sqlidetector.py [-h] -f FILE [-w WORKERS] [-p PROXY] [-t TIMEOUT] [-o OUTPUT]
 A simple tool to detect SQL errors
 optional arguments:
@@ -68,7 +68,7 @@ optional arguments:
   -t TIMEOUT, --timeout [TIMEOUT Connection timeout]
   -o OUTPUT, --output [OUTPUT [Output file]
 
-~/eslam3kl/SQLiDetector# python3 sqlidetector.py -f urls.txt -w 50 -o output.txt -t 10 
+# python3 sqlidetector.py -f urls.txt -w 50 -o output.txt -t 10 
 ```
 
 ## How does it test the parameter? 
