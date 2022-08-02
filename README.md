@@ -22,19 +22,36 @@ Source: https://github.com/sqlmapproject/sqlmap/blob/master/data/xml/errors.xml
 
 ## How does it work? 
 It's very simple, just organize your steps as follows
-1. Use your subdomain grabber script or tools. 
-2. Use your links and URLs tools to grab all waybackurls. 
-3. Use URO tool to filter them and reduce the noise. 
-4. Grep to get all the links that contain parameters only. You can use Grep or GF tool.
-5. Pass the final URLs file to the tool, and it will test them. 
+1. Use your subdomain grabber script or tools.
+2. Pass all collected subdomains to httpx or httprobe to get only live subs. 
+3. Use your links and URLs tools to grab all waybackurls like waybackurls, gau, gauplus, etc. 
+4. Use URO tool to filter them and reduce the noise. 
+5. Grep to get all the links that contain parameters only. You can use Grep or GF tool.
+6. Pass the final URLs file to the tool, and it will test them. 
+
+The final schema of URLs that you will pass to the tool must be like this one
 ```
-pip3 install -r requirements.txt [Just for the first time only]
-python3 sqli_detector.py <waybackurls_file.txt>
+https://aykalam.com?x=test&y=fortest
+http://test.com?parameter=ayhaga
+```
+
+## Installation and Usage
+Just run the following command to install the required libraries. 
+```
+pip3 install -r requirements.txt 
+```
+To run the tool itself. 
+```
+$ cat waybackurls_file.txt
+https://aykalam.com?x=test&y=fortest
+http://test.com?parameter=ayhaga
+
+$ python3 sqli_detector.py <waybackurls_file.txt>
 ```
 
 ## How does it test the parameter? 
 What's the difference between this tool and any other one? 
-If we have a link like this one, `https://example.com?file=aykalam&username=eslam3kl` so we have 2 parameters. It creates 2 possible vulnerable URLs. 
+If we have a link like this one `https://example.com?file=aykalam&username=eslam3kl` so we have 2 parameters. It creates 2 possible vulnerable URLs. 
 1. It will work for every payload like the following 
 ```
 https://example.com?file=123'&username=eslam3kl
