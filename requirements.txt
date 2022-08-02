@@ -1,4 +1,3 @@
 rich==12.5.1
 exurl==1.2.1
 requests==2.22.0
-termcolor==1.1.0
