@@ -8,13 +8,10 @@ jobs:
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
         with:
-          python-version: 3.7
+          python-version: 3.10
       - name: Install Black
         run: pip install black
-      - name: Run black --check .
-        run: black --check .
-      - name: If needed, commit black changes to the pull request
-        if: failure()
+      - name:  commit black changes to the pull request
         run: |
           black .
           git config --global user.name 'github-actions[bot]'
