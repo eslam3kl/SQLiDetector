@@ -105,14 +105,14 @@ https://example.com?file=aykalam&username=123'
 
 If you want to contribute, feel free to do that. You're welcome :)
 
-
-## Contributors
-Thanks to Mohamed El-Khayat, Khaled Nassar and Orwa for the amazing paylaods and ideas. Follow them and you will learn more
+## Thanks to 
+Thanks to Mohamed El-Khayat and Orwa for the amazing paylaods and ideas. Follow them and you will learn more
 ```
 https://twitter.com/Mohamed87Khayat
 https://twitter.com/GodfatherOrwa
-https://twitter.com/knassar702
 ```
+
+## Contributors
 ![contributors](CONTRIBUTORS.svg)
 
 ## Stay in touch <3 
