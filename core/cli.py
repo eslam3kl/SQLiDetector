@@ -14,17 +14,18 @@ def cli_opts() -> argparse.Namespace:
         "-f",
         "--file",
         help="File of the urls",
-        required=True,
+        required=False,
         type=lambda x: is_valid_file(parser, x),
     )
     parser.add_argument(
-        "-w", "--workers", help="Number of threads", required=False, default=10, type=int
+        "-w", "--workers", help="Number of threads", required=False, type=int, default=10
     )
     parser.add_argument("-p", "--proxy", help="Proxy host", required=False)
     parser.add_argument(
         "-t", "--timeout", help="Connection timeout", required=False, default=10, type=int
     )
     parser.add_argument("-o", "--output", help="Output file", required=False)
+    parser.add_argument("--stdin", help="Get URLS from stdin", action="store_true")
     return parser.parse_args()
 
 

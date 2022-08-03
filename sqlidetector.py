@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+from sys import stdin, argv
 from core.cli import cli_opts, print_logo
 from core.app import Scanner
 
@@ -6,7 +7,13 @@ from core.app import Scanner
 def main():
     print_logo()
     opts = cli_opts()
-    targets = opts.file
+    if opts.file:
+        targets = opts.file
+    elif opts.stdin:
+        targets = [url for url in stdin.readlines() if "?" in url]
+    else:
+        print(f"\n[!] Usage: {argv[0]} -h\n")
+        exit(1)
     timeout = opts.timeout
     workers = opts.workers
 
