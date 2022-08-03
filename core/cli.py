@@ -18,11 +18,11 @@ def cli_opts() -> argparse.Namespace:
         type=lambda x: is_valid_file(parser, x),
     )
     parser.add_argument(
-        "-w", "--workers", help="Number of threads", required=False, default=10
+        "-w", "--workers", help="Number of threads", required=False, default=10, type=int
     )
     parser.add_argument("-p", "--proxy", help="Proxy host", required=False)
     parser.add_argument(
-        "-t", "--timeout", help="Connection timeout", required=False, default=10
+        "-t", "--timeout", help="Connection timeout", required=False, default=10, type=int
     )
     parser.add_argument("-o", "--output", help="Output file", required=False)
     return parser.parse_args()
