@@ -2,9 +2,7 @@
 from sys import stdin, argv
 from core.cli import cli_opts, print_logo
 from core.app import Scanner
-from rich.console import Console
 
-console = Console(style="bold red")
 
 def main():
     print_logo()
@@ -14,7 +12,7 @@ def main():
     elif opts.stdin:
         targets = [url for url in stdin.readlines() if "?" in url]
     else:
-        console.print(f"\n[!] Usage: {argv[0]} -h\n")
+        print(f"\n[!] Usage: {argv[0]} -h\n")
         exit(1)
     timeout = opts.timeout
     workers = opts.workers
