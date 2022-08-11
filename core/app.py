@@ -16,10 +16,16 @@ requests.packages.urllib3.disable_warnings()  # Disable SSL warnings
 
 
 class Scanner:
-    def __init__(self, timeout: int = 10, proxies: Dict[str, str] = {}):
+    def __init__(
+        self,
+        timeout: int = 10,
+        headers: Dict[str, str] = {},
+        proxies: Dict[str, str] = {},
+    ):
         self.found: List[Tuple[str, str]] = []
         self.timeout = timeout
         self.proxies = proxies
+        self.headers = headers
         self.user_agents = (
             Path(f"{base_dir}/txt/user_agents.txt").read_text().splitlines()
         )
@@ -57,6 +63,7 @@ class Scanner:
     def send(self, url: str):
         user_agent = random.choice(self.user_agents)
         headers = {"User-Agent": user_agent}
+        headers.update(self.headers)
         try:
             response = requests.get(
                 url,
