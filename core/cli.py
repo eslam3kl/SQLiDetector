@@ -2,10 +2,31 @@ from rich.console import Console
 from pathlib import Path
 import os.path
 import argparse
+import re
 
 # add anything you want to be global here
 console = Console()
 base_dir = Path(__file__).resolve().parent.parent
+
+
+# Convert string headers to a dict Headers
+def extract_headers(headers: str) -> dict:
+    """
+    >>> extract_headers('User-agent: YES')
+    {'User-agent':'YES'}
+    >>> extract_headers('User-agent: YES\nHacker: 3')
+    {'User-agent':'YES','Hacker':'3'}
+    """
+    headers = headers.replace("\\n", "\n")
+    sorted_headers = {}
+    matches = re.findall(r"(.*):\s(.*)", headers)
+    for match in matches:
+        header = match[0]
+        value = match[1]
+        if value[-1] == ",":
+            value = value[:-1]
+        sorted_headers[header] = value
+    return sorted_headers
 
 
 def cli_opts() -> argparse.Namespace:
@@ -21,6 +42,7 @@ def cli_opts() -> argparse.Namespace:
         "-w", "--workers", help="Number of threads", required=False, type=int, default=10
     )
     parser.add_argument("-p", "--proxy", help="Proxy host", required=False)
+    parser.add_argument("-H","--header", help="Custom header", required=False)
     parser.add_argument(
         "-t", "--timeout", help="Connection timeout", required=False, default=10, type=int
     )
