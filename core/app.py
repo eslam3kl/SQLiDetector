@@ -11,6 +11,8 @@ from rich.table import Column
 import requests
 import random
 import re
+import time
+import queue
 
 requests.packages.urllib3.disable_warnings()  # Disable SSL warnings
 
@@ -18,11 +20,11 @@ requests.packages.urllib3.disable_warnings()  # Disable SSL warnings
 class Scanner:
     def __init__(
         self,
-        timeout: int = 10,
+        timeout: int = 5,
         headers: Dict[str, str] = {},
         proxies: Dict[str, str] = {},
     ):
-        self.found: List[Tuple[str, str]] = []
+        self.found = queue.Queue()
         self.timeout = timeout
         self.proxies = proxies
         self.headers = headers
@@ -33,7 +35,6 @@ class Scanner:
             Path(f"{base_dir}/txt/sql_errors.txt").read_text().splitlines()
         )
         self.payloads = Path(f"{base_dir}/txt/payloads.txt").read_text().splitlines()
-        self._lock = threading.Lock()
 
     def start(self, targets: List[str], workers: int = 10):
         new_targets = []
@@ -60,33 +61,42 @@ class Scanner:
                 for _ in as_completed(started_workers):
                     progress.update(task1, advance=1)
 
+        # Wait for all tasks to complete before writing the report
+        with ThreadPoolExecutor(max_workers=1) as executor:
+            executor.submit(self.write_report, "report.json")
+
     def send(self, url: str):
         user_agent = random.choice(self.user_agents)
         headers = {"User-Agent": user_agent}
         headers.update(self.headers)
         try:
-            response = requests.get(
-                url,
-                headers=headers,
-                verify=False,
-                proxies=self.proxies,
-                timeout=self.timeout,
-            ).text
+            # Use a session for connection pooling
+            with requests.Session() as session:
+                response = session.get(
+                    url,
+                    headers=headers,
+                    verify=False,
+                    proxies=self.proxies,
+                    timeout=self.timeout,
+                ).text
             for pattern in self.sql_errors:
                 pattern = pattern.strip()
                 if re.findall(pattern, response):
-                    self._lock.acquire()
-                    self.found.append((url, pattern))
+                    self.found.put((url, pattern))
                     console.print(
                         f"[yellow bold]>>> [/yellow bold] {url}  [red bold]{pattern}[/red bold]"
                     )
-                    self._lock.release()
-
         except KeyboardInterrupt:
             exit()
         except:
-            pass  # IGNOERING THE ERRORS
+            pass  # IGNORING THE ERRORS
+
+        # Add a delay to throttle requests (adjust the value as needed)
+        time.sleep(0.1)
 
     def write_report(self, output: str):
+        results = []
+        while not self.found.empty():
+            results.append(self.found.get())
         with open(output, "w") as f:
-            f.write(json.dumps(self.found))
+            f.write(json.dumps(results))
