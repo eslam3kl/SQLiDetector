@@ -74,13 +74,13 @@ class Scanner:
             ).text
             for pattern in self.sql_errors:
                 pattern = pattern.strip()
+                self._lock.acquire()
                 if re.findall(pattern, response):
-                    self._lock.acquire()
                     self.found.append((url, pattern))
                     console.print(
                         f"[yellow bold]>>> [/yellow bold] {url}  [red bold]{pattern}[/red bold]"
                     )
-                    self._lock.release()
+                self._lock.release()
 
         except KeyboardInterrupt:
             exit()
